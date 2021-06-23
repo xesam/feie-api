@@ -1,8 +1,8 @@
 {
   "name": "feie-api",
-  "version": "1.0.0",
+  "version": "0.0.1",
   "description": "",
-  "main": "api_nodejs_demo.js",
+  "main": "index.js",
   "directories": {
     "test": "test"
   },

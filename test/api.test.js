@@ -1,5 +1,5 @@
 const Config = require('@xesam/config');
-const api = require('../src/api');
+const api = require('../index');
 
 const {USER, UKEY} = new Config('feie').loadSync();
 const {SN} = new Config('test', './test.json5').loadSync();
