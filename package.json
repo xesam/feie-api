@@ -18,5 +18,13 @@
   },
   "keywords": [],
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/xesam/feie-api.git"
+  },
+  "bugs": {
+    "url": "https://github.com/xesam/feie-api/issues"
+  },
+  "homepage": "https://github.com/xesam/feie-api#readme"
 }
