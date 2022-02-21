@@ -1,14 +1,5 @@
 const VENDOR_APIS = require('./VENDOR_APIS');
 
-const proto = Object.create(null);
-VENDOR_APIS.forEach(api => {
-    const apiName = api.name;
-    const name = apiName.replace('Open_', '');
-    proto[name] = function (params, auth) {
-        return this.sendRequest(apiName, {...this.getAuth(), ...auth}, params);
-    };
-});
-
 const interceptor = res => {
     const data = res.data;
     if (data.ret === 0 && data.msg === 'ok') {
@@ -47,8 +38,8 @@ class Printer {
 
     sendRequest(apiName, auth, params) {
         const publicParams = this.getPublic(apiName, auth);
-        const postParams = removeEmpty({...publicParams, ...params});
-        return this.request('', postParams).then(interceptor);
+        const requestParams = removeEmpty({...publicParams, ...params});
+        return this.request('', requestParams).then(interceptor);
     }
 
     getPublic(apiName, auth) {
@@ -72,6 +63,12 @@ class Printer {
 
 }
 
-Object.assign(Printer.prototype, proto);
+VENDOR_APIS.forEach(api => {
+    const apiName = api.name;
+    const name = apiName.replace('Open_', '');
+    Printer.prototype[name] = function (params, auth) {
+        return this.sendRequest(apiName, {...this.getAuth(), ...auth}, params);
+    };
+});
 
 module.exports = Printer;
