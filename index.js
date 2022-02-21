@@ -1,3 +1,3 @@
-const api = require('./src/api');
+const Printer = require('./src/Printer');
 
-module.exports = api;
+module.exports = Printer;

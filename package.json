@@ -1,6 +1,6 @@
 {
   "name": "feie-api",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "feie printer js api",
   "main": "index.js",
   "directories": {
@@ -13,8 +13,7 @@
     "axios": "0.21.1"
   },
   "devDependencies": {
-    "@xesam/config": "0.0.2",
-    "@xesam/token": "0.0.1"
+    "@xesam/config": "0.0.2"
   },
   "keywords": [],
   "author": "",
