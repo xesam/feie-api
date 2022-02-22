@@ -9,13 +9,16 @@ npm install feie-api
 ```
 
 ```javascript
+const {getPrinter} = require('feie');
 const USER = 'your dev username';
 const UKEY = 'your dev key';
+const Printer = getPrinter();
+const p = new Printer(USER, UKEY);
 const SN = '123456789';
 
-api.queryPrinterStatus({sn: SN}, {user: USER, key: UKEY}).then(console.log).catch(console.error);
-
-const api2 = api.create(USER, UKEY);
-api2.queryPrinterStatus({sn: SN}).then(console.log).catch(console.error);
-
+p.queryPrinterStatus({sn: SN}).then(res => {
+    console.log(res);
+}).catch(err => {
+    console.error(err);
+});
 ```
